@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -57,6 +57,7 @@ const UpdatePrompt = () => {
   };
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <Form
       type='Update'
       post={post}
@@ -64,6 +65,7 @@ const UpdatePrompt = () => {
       submitting={submitting}
       handleSubmit={updatePrompt}
     />
+    </Suspense>
   );
 };
 

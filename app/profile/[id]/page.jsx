@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
 
@@ -12,7 +12,6 @@ const MyProfile = () => {
   const router = useRouter()
   const searchParams = useSearchParams()
   const {id} = useParams()
-  console.log(id)
   const name = searchParams.get('name')
 
   useEffect(() => {
@@ -46,7 +45,7 @@ const MyProfile = () => {
 
   
   return (
-    <div>
+    <Suspense fallback={<div>Loadin....</div>}>
       <Profile 
         name={name}
         desc="Welcome to your personalized profile page"
@@ -54,7 +53,7 @@ const MyProfile = () => {
         handleEdit={handleEdit}
         handleDelete={handleDelete}
       />
-    </div>
+    </Suspense>
   )
 }
 
