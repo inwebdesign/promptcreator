@@ -1,6 +1,7 @@
 import Nav from '@components/Nav'
 import Provider from '@components/Provider'
 import '@styles/globals.css'
+import { Suspense } from 'react'
 
 export const metadata = {
   title: 'Promptopia',
