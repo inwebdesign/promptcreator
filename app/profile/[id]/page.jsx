@@ -1,5 +1,5 @@
 'use client'
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
 
@@ -45,7 +45,6 @@ const MyProfile = () => {
 
   
   return (
-    <Suspense fallback={<div>Loadin....</div>}>
       <Profile 
         name={name}
         desc="Welcome to your personalized profile page"
@@ -53,7 +52,6 @@ const MyProfile = () => {
         handleEdit={handleEdit}
         handleDelete={handleDelete}
       />
-    </Suspense>
   )
 }
 
